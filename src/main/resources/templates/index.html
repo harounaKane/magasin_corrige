@@ -7,7 +7,19 @@
 <body>
 	<th:block th:replace="~{_commun :: header}"></th:block>
 	
+	<main class="container-fluid d-flex justify-content-start">
 	
+		<div th:each="article : ${articles}" class="card m-3">
+			<img th:src="${article.imageChemin}" alt="" class="img-fluid card-img-top" />
+			<div class="card-body">
+				<h3 class="card-title h5">[[${article.libelle}]]</h3>
+				<p class="card-text">[[${#strings.substring(article.description, 0, 25)}]]...</p>
+				<p class="card-text">[[${article.prix}]]€</p>
+				<a href="" class="btn btn-outline-primary w-100">Commander</a>
+			</div>
+		</div>
+	
+	</main>
 	
 	
 	<th:block th:replace="~{_commun :: footer}"></th:block>

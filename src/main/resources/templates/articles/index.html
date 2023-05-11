@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace="~{_commun :: head}"></th:block>
+</head>
+<body>
+	<th:block th:replace="~{_commun :: header}"></th:block>
+	
+	<main class="container-fluid">
+		<h2 class="text-center">Articles</h2>
+		<a th:href="@{/article/new}" class="btn btn-success">New article</a>
+		
+		<table class="table table-striped my-3">
+			<tr class="table-dark">
+				<th>Logo</th>
+				<th>Libellé</th>
+				<th>Prix</th>
+				<th>Quantité</th>
+				<th>Action</th>
+			</tr>
+			
+			<tr th:each="article : ${articles}" >
+				<td> <img th:src="${article.imageChemin}" alt="" /> </td>
+				<td> [[${article.libelle}]] </td>
+				<td> [[${article.prix}]] </td>
+				<td> [[${article.quantite}]] </td>
+				<td> 
+					<a href="">X</a>
+				</td>
+			</tr>
+		</table>
+		
+		<a th:href="@{/article/new}" class="btn btn-success">New article</a>
+	
+	</main>
+	
+	
+	<th:block th:replace="~{_commun :: footer}"></th:block>
+</body>
+</html>

@@ -10,22 +10,32 @@
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 		crossorigin="anonymous">
 		
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
 	
 	<title>Magasin</title>
 </th:block>
 
 <th:block th:fragment="header">
 	<header class="bg-secondary p-3 mb-3">
-		<h1 class="text-center"><a href="">Ma boutique</a></h1>
-		<h2 class="text-center" th:if="${session.user}" th:text="${session.user.prenom}"></h2>
+		<h1 class="text-center"><a th:href="@{/}">Ma boutique</a></h1>
+		<h2 class="text-center h6" th:if="${session.user}" th:text="${session.user.prenom}"></h2>
 		<nav class="d-flex justify-content-between">
 			<div>
-				<a th:href="@{/logOn}" class="btn btn-success">Log on</a>
-				<a th:href="@{/user/login}" class="btn btn-success">Log in</a>
-				<a th:href="@{/user/logout}" class="btn btn-danger">Log out</a>
+				<th:block th:if="${session.user}">
+					<a th:href="@{/article/articles}" class="btn btn-success">Articles</a>
+					<a th:href="@{/user/logout}" class="btn btn-danger">Log out</a>
+				</th:block>
+				
+				<th:block th:unless="${session.user}">
+					<a th:href="@{/logOn}" class="btn btn-success">Log on</a>
+					<a th:href="@{/user/login}" class="btn btn-success">Log in</a>
+				</th:block>
+				
+				
 			</div>
 			
+			
+			<!--PANIER-->
 			<a href="" class="">
 				<i class="fa-solid fa-cart-shopping border border-3 rounded-circle p-3">
 					<span class="text-danger">0</span>

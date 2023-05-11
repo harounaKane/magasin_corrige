@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ilci.magasin.UserRepository;
 import com.ilci.magasin.entity.Personne;
+import com.ilci.magasin.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 
