@@ -13,6 +13,8 @@
 		<form th:action="@{/article/add}" th:object="${article}" method="post" class="row"
 				enctype="multipart/form-data">
 		
+			<input type="hidden" th:field="*{id}" />
+		
 			<div class="form-group col-6">
 				<label for="">Libellé</label>
 				<input type="text" th:field="*{libelle}" class="form-control" />
@@ -28,12 +30,19 @@
 			</div>
 			<div class="form-group col-6">
 				<label for="">image</label>
-				<input type="file" accept="image/*" name="logo" class="form-control" />
+				<input type="file" th:value="${article.image}" accept="image/*" name="logo" class="form-control" />
 			</div>
 			<div class="form-group col-6">
 				<label for="">Description</label>
 				<textarea rows="8" cols="" th:field="*{description}" class="form-control"></textarea>
 			</div>
+			
+			<!--Affiche logo si update-->
+			<th:block th:if="${article.id}" class="col-6">
+				Image actuelle
+				<img class="w-25 m-3" th:src="${article.imageChemin}" alt="" />
+			</th:block>
+			
 			<div class="w-100"></div>
 			<div class="form-group col-6 mt-3">
 				<input type="submit" class="btn btn-success" />

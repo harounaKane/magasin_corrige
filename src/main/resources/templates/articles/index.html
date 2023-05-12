@@ -11,7 +11,7 @@
 		<h2 class="text-center">Articles</h2>
 		<a th:href="@{/article/new}" class="btn btn-success">New article</a>
 		
-		<table class="table table-striped my-3">
+		<table class="table table-striped my-3 text-center">
 			<tr class="table-dark">
 				<th>Logo</th>
 				<th>Libellé</th>
@@ -26,7 +26,13 @@
 				<td> [[${article.prix}]] </td>
 				<td> [[${article.quantite}]] </td>
 				<td> 
-					<a href="">X</a>
+					<a th:href="@{/article/update/__${article.id}__}"  class="btn btn-outline-success">
+						<i class="fa-solid fa-pen"></i>
+					</a>
+					| 
+					<a th:href="@{/article/delete/__${article.id}__}" class="btn btn-outline-danger">
+						<i class="fa-solid fa-trash"></i>
+					</a>
 				</td>
 			</tr>
 		</table>

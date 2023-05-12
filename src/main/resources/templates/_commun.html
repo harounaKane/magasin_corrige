@@ -44,7 +44,8 @@
 			
 		</nav>
 	</header>
-	<div class="alert alert-success text-center" th:if="${success}" th:text="${success}"></div>
+	<!--MESSAGE FLASH-->
+	<div id="message" class="alert alert-success text-center message"  th:if="${success}" th:text="${success}"></div>
 </th:block>
 
 
@@ -52,4 +53,6 @@
 	<footer class="bg-secondary p-3 mt-3 text-center">
 		&copy; magasion en ligne
 	</footer>
+	
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
 </th:block>

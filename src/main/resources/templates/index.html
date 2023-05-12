@@ -7,9 +7,9 @@
 <body>
 	<th:block th:replace="~{_commun :: header}"></th:block>
 	
-	<main class="container-fluid d-flex justify-content-start">
+	<main class="container-fluid d-flex justify-content-start row">
 	
-		<div th:each="article : ${articles}" class="card m-3">
+		<div th:each="article : ${articles}" class="card m-1 col-xs-2 col-md-3" style="width: 18rem">
 			<img th:src="${article.imageChemin}" alt="" class="img-fluid card-img-top" />
 			<div class="card-body">
 				<h3 class="card-title h5">[[${article.libelle}]]</h3>
@@ -20,7 +20,6 @@
 		</div>
 	
 	</main>
-	
 	
 	<th:block th:replace="~{_commun :: footer}"></th:block>
 </body>
